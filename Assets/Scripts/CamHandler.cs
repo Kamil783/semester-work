@@ -28,7 +28,7 @@ public class CamHandler : MonoBehaviour
    void Tick(){
 	   HandlePosition();
 	   HandleRotation();
-	   mTrans.position=Character.position;
+	   //mTrans.position=Character.position;
 	   TargetLook();
    }
    void HandlePosition(){
@@ -45,9 +45,9 @@ public class CamHandler : MonoBehaviour
 	   Vector3 newPivotPos=pivot.localPosition;
 	   newPivotPos.x=targetX;
 	   newPivotPos.y=targetY;
-	   Vector3 newCamPos=camTrans.localPosition;
+		pivot.localPosition = newPivotPos;
+		Vector3 newCamPos=camTrans.localPosition;
 	   newCamPos.z=targetZ;
-	   pivot.localPosition=newPivotPos;
 	   camTrans.localPosition=newCamPos;
    }
    void HandleRotation(){

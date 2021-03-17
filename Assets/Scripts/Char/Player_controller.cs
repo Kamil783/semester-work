@@ -6,13 +6,13 @@ public class Player_controller : MonoBehaviour
 {
 	[SerializeField]
 	private Player_Motor motor;
-	//[SerializeField]
-	//private CharAnim anim;
+	[SerializeField]
+	private CharAnim anim;
 	//[SerializeField]
 	//private CharInput input;
 
 	void Update(){
-		//anim.AnimationUpdate();
+		anim.AnimationUpdate();
 		motor.MoveUpdate();
 		//input.InputUpdate();
 	}

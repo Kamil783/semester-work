@@ -28,7 +28,7 @@ public class Player_Motor : MonoBehaviour
 		velocity = (movHor+movVer).normalized*speed;
 		//if(charStat.isAiming)
 			//velocity=velocity/2;
-		GamingGravity();
+		GameGravity();
 		velocity.y=gravityForce;
 	}
 	public void MoveUpdate(){
@@ -61,11 +61,12 @@ public class Player_Motor : MonoBehaviour
 		float dis=0.7f;
 		RaycastHit hit;
 		if(Physics.Raycast(origin,dir,out hit,dis)){
+			//transform.position= hit.point;
 			return true;
 		}
 		return false;
 	}
-	private void GamingGravity(){
+	private void GameGravity(){
 		if(IsGround()){
 			gravityForce=0f;
 		}

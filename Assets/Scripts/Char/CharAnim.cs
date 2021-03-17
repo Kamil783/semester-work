@@ -15,10 +15,10 @@ public class CharAnim : MonoBehaviour
     public void AnimationUpdate()
     {
 		//anim.SetBool("sprint",charStatus.isSprint);
-		anim.SetBool("IsAiming",charStatus.isAiming);
-		anim.SetBool("IsAimingMove",charStatus.isAimingMove);
+		//anim.SetBool("IsAiming",charStatus.isAiming);
+		//anim.SetBool("IsAimingMove",charStatus.isAimingMove);
         if(charStatus.isAiming){
-			AnimRifle();
+			AnimBow();
 		}
 		else{
 			AnimDefoult();
@@ -28,7 +28,7 @@ public class CharAnim : MonoBehaviour
 		speed=(float)(Math.Sqrt(Math.Pow(motor.zMov,2)+Math.Pow(motor.xMov,2)));//скорость
 		anim.SetFloat("vertical",speed,0.15f,Time.deltaTime);
 	}
-	void AnimRifle(){
+	void AnimBow(){
 		float h=motor.xMov;
 		float v=motor.zMov;
 		anim.SetFloat("vertical",v,0.15f,Time.deltaTime);

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: CamConfig
   m_EditorClassIdentifier: 
   turnSmooth: 0
-  pivotSpeed: 0
-  yRotSpeed: 0
-  xRotSpeed: 0
-  minAngle: 0
-  maxAngle: 0
-  normalZ: 0
+  pivotSpeed: 1
+  yRotSpeed: 1
+  xRotSpeed: 1
+  minAngle: -30
+  maxAngle: 60
+  normalZ: -3
   normalX: 0
-  normalY: 0
+  normalY: 1.5
   aimZ: 0
-  aimX: 0
+  aimX: 0.259
