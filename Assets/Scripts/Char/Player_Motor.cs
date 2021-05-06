@@ -56,12 +56,13 @@ public class Player_Motor : MonoBehaviour
 	}
 	public bool IsGround(){
 		Vector3 origin=transform.position;
-		origin.y+=0.6f;
+		origin.y+=0.66f;
 		Vector3 dir=-Vector3.up;
 		float dis=0.7f;
 		RaycastHit hit;
 		if(Physics.Raycast(origin,dir,out hit,dis)){
 			//transform.position= hit.point;
+			//Debug.Log("Ground");
 			return true;
 		}
 		return false;
@@ -74,5 +75,8 @@ public class Player_Motor : MonoBehaviour
 			gravityForce-=10f*Time.deltaTime;
 		}
 	}
+	public void MoveForward(float Speed,float SpeedGraph) {
+		transform.Translate(Vector3.forward*Speed*SpeedGraph*Time.deltaTime);
 	
+	}
 }

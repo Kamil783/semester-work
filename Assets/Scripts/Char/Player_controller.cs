@@ -8,12 +8,15 @@ public class Player_controller : MonoBehaviour
 	private Player_Motor motor;
 	[SerializeField]
 	private CharAnim anim;
+	[SerializeField]
+	private RagdollController ragdoll;
 	//[SerializeField]
 	//private CharInput input;
 
 	void Update(){
 		anim.AnimationUpdate();
 		motor.MoveUpdate();
+		
 		//input.InputUpdate();
 	}
 }

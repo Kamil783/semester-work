@@ -16,7 +16,7 @@ public class CharInput : MonoBehaviour
 	public int SelectedWeapon;
 	
 	void Start(){
-		targetLook=weapon.target;
+		//targetLook=weapon.target;
 	}
 	
     public void InputUpdate()
@@ -39,7 +39,7 @@ public class CharInput : MonoBehaviour
 			charStatus.isAimingMove=false;
 		}
 		if(Input.GetMouseButton(0)){//&&canAiming&&Input.GetMouseButton(1)){
-			weapon.Shoot();
+		//	weapon.Shoot();//атака
 		}
 		if(DebugAiming){
 			charStatus.isAiming=true;
