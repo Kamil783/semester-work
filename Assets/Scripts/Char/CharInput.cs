@@ -26,6 +26,9 @@ public class CharInput : MonoBehaviour
 		InputAiming();
     }
 	public void InputAiming(){
+		
+
+
 		if(Input.GetMouseButton(1)&&canAiming){
 			charStatus.isAiming=true;
 			charStatus.isAimingMove=true;

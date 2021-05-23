@@ -5,8 +5,17 @@ using UnityEngine;
 public class Combat : MonoBehaviour
 {
     private Animator anim;
+    private CharacterStats stats;
     void Awake() {
-        anim = GetComponent<Animator>();//InChildren если анимации будут в оружии
+        stats = GetComponent<CharacterStats>();
+        anim = GetComponentInChildren<Animator>();//InChildren если анимации будут в оружии
+    }
+    public void Block() {
+        anim.SetBool("block",true);
+    }
+    public void EndBlock()
+    {
+        anim.SetBool("block", false);
     }
     public void Light1() {
         anim.SetTrigger("light1");
@@ -27,6 +36,7 @@ public class Combat : MonoBehaviour
     {
         anim.SetTrigger("heavy2");
     }
+    
     //enemy
     public void EnemyAttack(int type) {
         if (type == 0)
@@ -52,6 +62,7 @@ public class Combat : MonoBehaviour
             anim.SetTrigger("standUp");
         }
     public void Hit(int type) {
+        StartCoroutine("HitDelay");
         if (type == 0)
         {
             anim.SetTrigger("hit1");
@@ -69,6 +80,13 @@ public class Combat : MonoBehaviour
 
     }
 
+    public IEnumerator HitDelay()
+    {
 
-    
+        stats.canAttack = false;
+        yield return new WaitForSeconds(2f);
+        stats.canAttack = true;
+
+    }
+
 }

@@ -11,7 +11,7 @@ public class RagdollController : MonoBehaviour
         SetRagdollParts();
     
     }
-   // private IEnumerator Start() {
+    //private IEnumerator Start() {
         //yield return new WaitForSeconds(2f);
       //  TurnOnRagdoll();
     //}
@@ -21,17 +21,20 @@ public class RagdollController : MonoBehaviour
             if (c.gameObject != this.gameObject)
             {
                 c.isTrigger = true;
+                c.enabled = false;
                 ragdollParts.Add(c);
             }
         }
     }
-    void TurnOnRagdoll()
+    public void TurnOnRagdoll()
     {
+       // Debug.Log("Рагдол");
         animator.enabled = false;
         animator.avatar = null;
         this.gameObject.GetComponent<CapsuleCollider>().enabled=false;
         foreach (Collider c in ragdollParts)
         {
+            c.enabled = true;
             c.isTrigger = false;
         }
     }

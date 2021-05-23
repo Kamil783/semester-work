@@ -8,9 +8,11 @@ public class Weapon : Item {
     public int damage;
     [SerializeField]
     public int force;
+    public RuntimeAnimatorController animator;
 	public Vector3 rHandPos;
-	public Vector3 rHandRot;
-	public GameObject weaponPrefab;
+    public Quaternion rHandRot;
 	public Vector3 weaponPos;
 	public Vector3 weaponRot;
+    public AttackDefinition lightAttack;
+    public AttackDefinition heavyAttack;
 }

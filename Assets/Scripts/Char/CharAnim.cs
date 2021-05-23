@@ -8,7 +8,7 @@ public class CharAnim : MonoBehaviour
     [SerializeField]
 	private CharStatus charStatus;
 	[SerializeField]
-	private Animator anim;
+	public Animator anim;
 	[SerializeField]
 	private Player_Motor motor;
 	private float speed;

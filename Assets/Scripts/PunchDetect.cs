@@ -5,29 +5,37 @@ using UnityEngine;
 public class PunchDetect : MonoBehaviour
 {
     [SerializeField]
-    private RagdollController ragdoll;
+    //private RagdollController ragdoll;
+    public AttackManager amanager;
     public List<Collider> collidingParts = new List<Collider>();
+    void Awake() { 
+        amanager= this.transform.root.gameObject.GetComponent<AttackManager>();
+    }
     void OnTriggerEnter(Collider col) {
-        if (ragdoll.ragdollParts.Contains(col)&&!col.gameObject.CompareTag("Weapon")) 
+        
+        if (!col.gameObject.CompareTag("Enemy"))//&&ragdoll.ragdollParts.Contains(col)) 
         {
             return;
         }
+       
 
         //  Player_controller control = col.transform.root.GetComponent<Player_controller>();
         //    if (control == null||col.gameObect==control.gameObject)
         //    {
         //      return;
         //}
-        AttackManager manager = col.transform.root.gameObject.GetComponentInChildren<AttackManager>();
-        if (manager == null)
-        {
+        GameObject target = col.transform.root.gameObject;
+        // manager =target.GetComponent<AttackManager>();
+       // if (manager == null)
+       // {
          //   Debug.Log("части"+col);
            // Debug.Log("корень"+col.transform.root);
-            return;
-        }
+           // return;
+       // }
+
         if (!collidingParts.Contains(col)) {
            
-            manager.AttackTarget(this.gameObject);
+            amanager.AttackTarget(target);
             collidingParts.Add(col);
         }
 

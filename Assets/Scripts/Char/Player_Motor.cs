@@ -17,6 +17,11 @@ public class Player_Motor : MonoBehaviour
 	private Rigidbody rb;
 	public Vector3 velocity=Vector3.zero;
 	private Vector3 PlayerDirection=Vector3.zero;//направление игрока
+	AttackManager attackManager;
+	void Awake()
+	{
+		attackManager = GetComponent<AttackManager>();
+	}
 	void Start(){
 		rb=GetComponent<Rigidbody>();
 	}
@@ -30,6 +35,11 @@ public class Player_Motor : MonoBehaviour
 			//velocity=velocity/2;
 		GameGravity();
 		velocity.y=gravityForce;
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			
+			attackManager.GetWeapon();
+		}
 	}
 	public void MoveUpdate(){
 		Move();

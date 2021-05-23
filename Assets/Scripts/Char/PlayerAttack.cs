@@ -18,15 +18,16 @@ public class PlayerAttack : MonoBehaviour
 
 
 
-
+    bool hit = false;
     bool timerToRes;
     float ResDelay = 0.9f;
     float curTimer;
 
     ComboState curComboState;
-
+    CharacterStats stats;
     private Combat combat;
     void Awake() {
+        stats = GetComponent<CharacterStats>();
         combat = GetComponent<Combat>();
     }
     void Start() {
@@ -37,6 +38,15 @@ public class PlayerAttack : MonoBehaviour
     {
         ComboAttacks();
         ResetComboState();
+        if (Input.GetKey(KeyCode.F)) {
+            stats.isBlocking = true;
+            combat.Block();
+        }
+        else
+        {
+            stats.isBlocking = false;
+            combat.EndBlock();
+        }
     }
     void ComboAttacks() {
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -101,10 +111,21 @@ public class PlayerAttack : MonoBehaviour
                 //curTimer = ResDelay;
 
             }
-            if (curTimer < (ResDelay - AttackDelay))
-            {
-                canAttack = true;
-            }
+            if (!hit)
+                if (curTimer < (ResDelay - AttackDelay))
+                {
+                    canAttack = true;
+                }
+                else if(curTimer<0) {
+                    canAttack = true;
+                }
         }
+    }
+    public  void TakeHit() {
+        combat.Hit(Random.Range(0, 2));
+        canAttack = false;
+        timerToRes = true;
+        curTimer = ResDelay;
+
     }
 }
