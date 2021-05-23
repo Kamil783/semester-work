@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe81ddda43de574eb166c8db602586d, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  name: item
+  icon: {fileID: 21300000, guid: a93bd4e8cbd9a024887f46f30646712a, type: 3}
+  prefab: {fileID: 919132149155446097, guid: 84b423bf63424104b9a98ccd34002dd3, type: 3}
+  damage: 45
+  force: 20
+  animator: {fileID: 22100000, guid: a6c4c816438bdcb43b2299df7000bfca, type: 2}
+  rHandPos: {x: 0.000714, y: 0, z: 0}
+  rHandRot: {x: 0, y: 0, z: 0, w: 0}
+  weaponPos: {x: 0.000714, y: 0.01670743, z: 0.0167074}
+  weaponRot: {x: 0, y: 0, z: 0}
+  lightAttack: {fileID: 11400000, guid: 3613f64c30c1db949a68599ef37367d7, type: 2}
+  heavyAttack: {fileID: 11400000, guid: bba825ef2426fd3468297928cc1b56ab, type: 2}
